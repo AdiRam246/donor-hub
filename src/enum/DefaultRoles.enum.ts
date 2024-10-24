@@ -1,0 +1,8 @@
+export enum defaultroles {
+  SYSTEM_ADMIN = 'SYSTEM_ADMIN',
+  ORG_ADMIN ='ORG_ADMIN',
+  ORG_DONOR='ORG_DONOR',
+  ORG_STAFF='ORG_STAFF',
+  PATIENT='PATIENT',
+  DONOR='DONOR',
+}
