@@ -1,28 +1,15 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { join } from 'path';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module, OnModuleInit } from '@nestjs/common';
+import { AppService } from './app.service';
+import { RoleModule } from './role/role.module';
 
+import { DatabaseModule } from './config/db/database.module';
+import { EnvConfigModule } from './config/env/envconfig.module';
+import { GraphqlModule } from './config/graphql/graphql.module';
+import { OrganizationModule } from './organization/organization.module';
+import { DonorModule } from './donor/donor.module';
+import { OrganUserModule } from './organ-user/organ-user.module';
 @Module({
-  imports: [
-    MongooseModule.forRoot(process.env.DATABASE_URL),
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver, // Add this line
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-    }),
-    TypeOrmModule.forRoot({
-      type: 'mongodb',
-      url: process.env.DATABASE_URL,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
-    // Add your modules here
-  ],
+  imports: [ EnvConfigModule, RoleModule, DatabaseModule, GraphqlModule, OrganizationModule, DonorModule, OrganUserModule],
+  providers: [AppService],
 })
-export class AppModule {
-  constructor() {
-    console.log('Using MongoDB URI:', process.env.DATABASE_URL); // Log the URI to ensure it's loaded
-  }
-}
+export class AppModule{}
