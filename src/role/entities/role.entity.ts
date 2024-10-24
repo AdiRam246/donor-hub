@@ -1,6 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { BaseApp } from 'src/common/entities/base.app.entity';
+import { BaseApp } from '../../common/entities/base.app.entity';
 
 @Schema({timestamps:true})
 @ObjectType()

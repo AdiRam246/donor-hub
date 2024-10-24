@@ -1,5 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
-import { CreateBaseAppInput } from 'src/common/dto/base-app.input';
+import { CreateBaseAppInput } from '../../common/dto/base-app.input';
 
 @InputType()
 export class CreateRoleInput extends CreateBaseAppInput {

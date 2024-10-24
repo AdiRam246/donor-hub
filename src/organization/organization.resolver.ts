@@ -25,7 +25,7 @@ export class OrganizationResolver {
 
   @Mutation(() => Organization)
   updateOrganization(@Args('updateOrganizationInput') updateOrganizationInput: UpdateOrganizationInput) {
-    return this.organizationService.update(updateOrganizationInput.id, updateOrganizationInput);
+    return this.organizationService.update(updateOrganizationInput.orgId, updateOrganizationInput);
   }
 
   @Mutation(() => Organization)

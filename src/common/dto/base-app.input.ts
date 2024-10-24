@@ -2,7 +2,7 @@ import { InputType, Field } from '@nestjs/graphql';
 @InputType()
 export class CreateBaseAppInput {
   @Field(() => Date, { description: 'cteateTime', nullable: true })
-  cteateAt: Date;
+  createAt: Date;
   @Field(() => Date, { description: 'modified time', nullable: true })
   modifiedAt: Date;
   @Field(() => Boolean, { description: 'isActive', nullable: true })
